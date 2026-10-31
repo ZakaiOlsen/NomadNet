@@ -16,7 +16,8 @@ UI_MENU       = 0x01
 UI_TEXT       = 0x02
 UI_GRAPHICAL  = 0x03
 UI_WEB        = 0x04
-UI_MODES = [UI_NONE, UI_MENU, UI_TEXT, UI_GRAPHICAL, UI_WEB]
+UI_ASHELL     = 0x05
+UI_MODES = [UI_NONE, UI_MENU, UI_TEXT, UI_GRAPHICAL, UI_WEB, UI_ASHELL]
 
 def spawn(uimode):
     if uimode in UI_MODES:
@@ -40,6 +41,9 @@ def spawn(uimode):
         elif uimode == UI_NONE:
             from .NoneUI import NoneUI
             return NoneUI()
+        elif uimode == UI_ASHELL:
+            from .AShellUI import AShellUI
+            return AShellUI()
         else:
             return None
     else:
